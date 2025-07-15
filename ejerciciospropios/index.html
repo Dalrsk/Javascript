@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+    Pidele tres datos al usuario. Numero 1, Numero 2 y operacion (suma, resta, multiplicación o división). Crea
+    un condicional que imprima el resultado de la operación entre los dos números.
+    */
+
+    let num1 = Number(prompt("ingrese un numero: "));
+    let num2 = Number(prompt("ingrese un numero: "));
+    let operador = Number(prompt("ingrese la operacion a realizar suma, resta, multiplicacion o division: ")); 
+
+    if (operador === "suma") {
+      alert("el resultado de la operacion es: " + (num1 + num2));
+    } else if (operador === "resta") {
+      alert("el resultado de la operacion es: " + (num1 - num2));
+    } else if (operador === "multiplicacion" || "mulptiplicación") {
+      alert("el resultado de la operacion es: " + (num1 * num2));
+    } else if (operador === "division" || "división") {
+      alert("el resultado de la operacion es: " + (num1 / num2));
+    } else {
+      alert("Error");
+    }
+
+
+
+  </script>
+</body>
+</html>
