@@ -39,7 +39,25 @@ sumar(10, 5); // Esto muestra 15 en la consola
   - 1: "Rojo, detente"
   - 2: "Amarillo, precaución"
   - 3: "Verde, avanza"
+*/
+let numero = number(prompt("Coloca un numero para seleccionar el estado del semaforo: "))
 
+function(Semaforo){
+  if (numero === 1){
+    console.log("Rojo, detente");
+  } else if ( numero === 2) {
+    console.log("Amarillo, precaución");
+  } else if (numero === 3) {
+    console.log("Verde, avanza");
+  }
+  else {
+    console.log("El numero no es valido")
+  }
+}
+
+
+
+/*
   Ejecutala 3 veces con diferentes números, debes realizar validaciones para que al
   enviar un numero fuera del rango 1-3, se muestre un mensaje de error.
 
@@ -70,16 +88,16 @@ function saludarHoisting(nombre) {
   - Alcance local: Las variables declaradas dentro de una función solo son accesibles dentro de esa función.
 */
 
-let saludos = "¡Hola!"; // sigue funcionando como  Variable global porque no esta dentro de las llaves
+let saludos = "¡Hola!"; // Variable global
 
-if(true) {
+if (true) {
   var variableGlobal = "Soy global"; // Esta variable es global
   let variableLocal = "Soy local"; // Esta variable es local
   const constante = "Soy constante"; // Esta constante es local
   console.log(variableGlobal, variableLocal, constante);
 }
 
-if(true) {
+if (true) {
   let variableLocal = "Nuevo valor local"; // Esta variable es local y no afecta a la anterior
   const constante = "Nueva constante"; // Esta constante es local y no afecta a la anterior
 }
@@ -92,13 +110,13 @@ console.log(variableGlobal, variableLocal, constante);
 */
 
 function multiplicarConRetono(num1, num2) {
-  let multiplicacion = num1 * num2
-  console.log(multiplicacion)
+  let multiplicacion = num1 * num2;
+  console.log(multiplicacion);
   return multiplicacion; // Devuelve el resultado de la multiplicación
 }
 
 console.log(multiplicarConRetono(5, 3)); // Esto muestra 15 en la consola
-let resultado = multiplicarConRetono(10, 3) + 5
+let resultado = multiplicarConRetono(10, 3) + 5;
 
 // Es muy distinto a
 
@@ -107,7 +125,7 @@ function multiplicarSinRetorno(num1, num2) {
 }
 
 console.log(multiplicarSinRetorno(5, 3)); // Esto muestra undefined en la consola
-console.log(multiplicarSinRetorno(10,3) + 5)
+console.log(multiplicarSinRetorno(10, 3) + 5);
 
 //Recursion
 /*
@@ -189,7 +207,6 @@ calcular_factorial(7);
   Crea una función recursiva que basado en un array de notas, te muestre el promedio.
 */
 
-
 // Loops
 /*
   Los loops (bucles) son estructuras que permiten repetir un bloque de código varias veces.
@@ -244,7 +261,7 @@ while (contador < 5) {
   El ciclo `do...while` ejecuta un bloque de código al menos una vez y luego verifica la condición.
   Es útil cuando necesitas asegurarte de que el código se ejecute al menos una vez.
 */
-let numero = 0;
+let num = 0;
 do {
   console.log("Número: " + numero); // Muestra el valor del número
   numero++; // Incrementa el número
@@ -270,19 +287,49 @@ const supermercado = {
   carnes: ["pollo", "res", "cerdo"],
 };
 
-for (let i = 0; i < supermercado.verduras.length; i++) {
-  console.log(supermercado.verduras[i]);
-}
-
-// For of
-for (let verdura of supermercado.verduras) {
-  console.log(verdura);
-}
-
-// For in y For each
-// Según el objeto anterior, imprime todas las verduras, frutas y carnes.
+// Resolución con For-in y For-of
 for (let categoria in supermercado) {
-  supermercado[categoria].forEach((elemento) => {})
+  for (let elemento of supermercado[categoria]) {
+    console.log(elemento);
+  }
+}
+
+// Resolución con For-in y forEach (función de flecha)
+for (let categoria in supermercado) {
+  supermercado[categoria].forEach((elemento) => {
+    console.log(elemento);
+  });
+}
+
+/**
+ * Ejercicio 4:
+ * Segun el siguiente arreglo de arreglos (matriz), crea:
+ * - Un bucle que imprima la suma de todos los numeros.
+ * - Un bucle que imprima la suma de cada fila.
+ */
+const numeros = [
+  [1, 2, 3, 0],
+  [4, 5, 6, 8],
+  [7, 8, 9, 6],
+];
+
+// Suma de todos los números
+let suma = 0;
+for (let i = 0; i < numeros.length; i++) {
+  for (let j = 0; j < numeros[i].length; j++) {
+    suma += numeros[i][j];
+  }
+}
+console.log("La suma de todos los números es: " + suma); // Usamos i para identificar la fila
+
+// Suma de cada fila
+let sumaFila = 0;
+for (let i = 0; i < numeros.length; i++) {
+  for (let j = 0; j < numeros[i].length; j++) {
+    sumaFila += numeros[i][j];
+  }
+  console.log("La suma de la fila " + i + " es: " + sumaFila);
+  sumaFila = 0;
 }
 
 /*
@@ -299,7 +346,6 @@ let aviones = [
 ];
 
 console.log(aviones.length);
-
 
 /*
   Metodos de strings
@@ -320,7 +366,7 @@ console.log(aviones.length);
   - `repeat()`: Repite la cadena un número específico de veces.
   - `concat()`: Une dos o más cadenas.
 */
-//let texto = "  Hola, JavaScript!  ";
+let texto = "  Hola, JavaScript!  ";
 console.log(texto.toUpperCase()); // Convierte a mayúsculas
 console.log(texto.toLowerCase()); // Convierte a minúsculas
 console.log(texto.substring(2, 10)); // Extrae una parte de la cadena
@@ -340,40 +386,61 @@ console.log(texto.concat(" ¡Bienvenido!")); // Une " ¡Bienvenido!" a la cadena
 // Ejercicios de strings
 /*
   1. Crea una función que reciba un string pero retorne cuantas palabras tiene.
+  2. Crea una función que reciba un string y cuente cuantas vocales tiene
+  3. Crea una función que reciba un string y retorne el string al revés.
+  4. Crea una función que reciba un string y retorne si este es un palíndromo o no.
 */
 
-//let texto = "El profe juan dejo tarea";
-function contarPalabras(texto) {
-  return texto.split(" ").length;
+//1
+function contar_palabras(texto) {
+  return texto.trim().split(" ").length;
 }
 
- // 2. Crea una función que reciba un string y cuente cuantas vocales tiene
-function contarVocales(texto) {
-  let contador = 0;
-  for (let i = 0; i < texto.length; i++) 
-    let letra = texto.charAt(i).toLowerCase();
-    if (letra === "a" || letra === "e" || letra === "i" || letra === "o" || letra === "u") 
-      contador++;
+console.log(contar_palabras("Hola a todos en la clase"));
 
+//2
+function contar_vocales(texto) {
+  contador = 0;
+  for (let letra of texto.toLowerCase()) {
+    if ("aeiouáéíóú".includes(letra)) {
+      contador++;
+    }
+  }
   return contador;
 }
 
-// 3. Crea una función que reciba un string y retorne el string al revés.
-function invertirString(texto) {
-  let textoInvertido = "";
+console.log(contar_vocales("Este mensaje es Supercalifragilisticoexpialidoso"));
+
+//3
+function invertir_texto(texto) {
+  let palabraInvertida = "";
   for (let i = texto.length - 1; i >= 0; i--) {
-    textoInvertido += texto.charAt(i);
+    palabraInvertida += texto[i];
+    //palabraInvertida = palabraInvertida + texto[i]
   }
-  return textoInvertido;
+  return palabraInvertida;
 }
 
-//4. Crea una función que reciba un string y retorne si este es un palíndromo o no.
+console.log(invertir_texto("Yo soy tu padre"));
 
-let texto = "Radar"; 
-function palindromo(texto) {
-  (let i = 0  texto.length - 1; i >= 0; i--)
-  return texto.toLowerCase() === texto.charAt(i);
+//4
+function verificar_palindromo(texto) {
+  let acentos = ["á", "é", "í", "ó", "ú"];
+  let vocales = ["a", "e", "i", "o", "u"];
+  for (let i = 0; i < acentos.length; i++) {
+    texto = texto.toLowerCase().replaceAll(acentos[i], vocales[i]);
+    console.log("Remplazando acentos", texto);
+  }
+  texto = texto.replaceAll(" ", "").replaceAll(",", "").replaceAll(".", "");
+  console.log("Replazandos ',', ' ', '.'", texto);
+  if (texto === invertir_texto(texto)) {
+    console.log("Es un palindromo");
+  } else {
+    console.log("No es un palindromo");
+  }
 }
+
+verificar_palindromo("A ti no, bonita.");
 
 //Metodos de arrays
 /*
@@ -416,7 +483,7 @@ console.log(frutasArray.includes("pera")); // Verifica si "pera" está en el arr
 
 let sumar = (num1, num2) => {
   return num1 + num2;
-}
+};
 
 sumar(5, 10); // Esto devuelve 15
 sumar(6, 20); // Esto devuelve 26
@@ -465,7 +532,41 @@ function validarNombre(nombre) {
   - "cielos"
   Si el texto contiene alguna de estas palabras, sustituye por "****" y retorna el texto modificado.
   Si no contiene ninguna, retorna el texto original.
+*/
 
+function evaluar_malas_palabras(texto) {
+  //array de malas palabras
+  let malasPalabras = [
+    "tonto",
+    "chispas",
+    "recorcholis",
+    "rayos",
+    "caracoles",
+    "cielos",
+  ];
+
+  //por cada mala palabra en el array ejecuto una función
+  malasPalabras.forEach((palabra) => {
+    //si el texto incluye la mala palabra ejecuto un codigo
+    if (texto.includes(palabra)) {
+      //hago que texto sea igual al texto modificado, es decir. El texto en minuscula con la
+      //mala palabra remplazada
+      texto = texto
+        .toLowerCase()
+        .replaceAll(palabra, "*".repeat(palabra.length));
+    }
+  });
+
+  return texto;
+}
+
+console.log(
+  evaluar_malas_palabras(
+    "rayos, jhonny es un tonto. Cielos, esto me desespera."
+  )
+);
+
+/*
   2. Según el siguiente array de objetos
   let personas = [
     { nombre: "Juan", edad: 25, pais: "España", sexo: "masculino" },
@@ -482,3 +583,339 @@ function validarNombre(nombre) {
 
   Fecha de entrega: 11/07/25
 */
+
+let personas = [
+  { nombre: "Juan", edad: 25, pais: "España", sexo: "masculino" },
+  { nombre: "María", edad: 30, pais: "México", sexo: "femenino" },
+  { nombre: "Pedro", edad: 22, pais: "Argentina", sexo: "masculino" },
+  { nombre: "Ana", edad: 28, pais: "Chile", sexo: "femenino" },
+  { nombre: "Luis", edad: 35, pais: "España", sexo: "masculino" },
+];
+
+console.log(personas.filter((persona) => persona.edad > 25));
+
+console.log(
+  personas.filter(
+    (persona) =>
+      persona.pais.toLocaleLowerCase() == "españa" &&
+      persona.sexo == "masculino"
+  )
+);
+
+/*
+  POO (Programación Orientada a Objetos)
+  La POO es un paradigma de programación que organiza el código en objetos, que son instancias de clases.
+  Los objetos pueden tener propiedades (atributos) y métodos (funciones).
+*/
+
+let carro = {
+  modelo: "mustang",
+  marca: "ford",
+  anio: "2013",
+  kilometraje: 232000,
+  encender: () => {
+    console.log("Encendiendo");
+  },
+};
+
+carro.volante = true;
+console.log(carro);
+
+carro.encender();
+
+/*
+  Las clases son moldes de objetos
+*/
+class Personaje {
+  //constructor recibe los parametros de la clase
+
+  constructor(nombre, vida, defensa) {
+    //this es un objeto que funciona en el contexto de la clase
+    //al decir this.nombre, estoy creando una propiedad nombre en el objeto this
+    //Debido a que this funciona en toda la clase, ahora podre llamar a this.nombre en otras funciones si eso deseo
+    this.nombre = nombre;
+    this.vida = vida;
+    this.defensa = defensa;
+  }
+
+  atacar() {
+    console.log(`${this.name} ataca con su puño`);
+  }
+}
+
+let jhon = new Personaje("Jhonny", 200, 12);
+let jeremy = new Personaje("Jeremy", 180, 10);
+
+jhon.atacar();
+jeremy.atacar();
+
+/*
+  La herencia.
+  Una clase puede heredar propiedades de otra. Piensa en ello como una serie de conjuntos, un ser vivo tiene
+  ciertas propiedades, pero un gato no tiene las mismas propiedades o metodos que un humano
+  aunque ambos son seres vivos. Sin embargo, si comparten ciertas cosas al ambos ser seres humanos
+*/
+
+class Arquero extends Personaje {
+  constructor(nombre, vida, defensa, precision) {
+    super(nombre, vida, defensa); // Llama al constructor de la clase base Personaje
+    this.precision = precision; // Agrega una nueva propiedad específica de Arquero
+  }
+
+  atacar_con_arco() {
+    console.log(
+      `${this.nombre} ataca con su arco y flecha con precisión ${this.precision}`
+    );
+  }
+}
+
+let arquero = new Arquero("Legolas", 220, 13, 93);
+arquero.atacar();
+arquero.atacar_con_arco();
+
+/*
+  Crea un videojuego que tenga las siguientes clases:
+  - personaje: Clase base para todos los personajes del juego.
+  - guerrero: Clase que hereda de personaje y representa a un guerrero.
+  - mago: Clase que hereda de personaje y representa a un mago.
+  - arquero: Clase que hereda de personaje y representa a un arquero.
+
+  personaje tiene las siguientes propiedades y metodos:
+  - nombre: Nombre del personaje.
+  - vida: Vida del personaje.
+  - daño: Daño del personaje.
+  - defensa: Defensa del personaje.
+  - velocidad: Velocidad del personaje.
+  - atacar(): Metodo utilizado para atacar (con los puños).
+  - saludar(): Método utilizado para saludar indicando nombre y clase.
+
+  guerrero tiene las siguientes propiedades y metodos:
+  - array_de_armas: Armas que puede usar el guerrero.
+  - atacar_con_arma(): Método utilizado para atacar con un arma aleatoria del array.
+
+  mago tiene las siguientes propiedades y metodos:
+  - array_de_hechizos: Hechizos que puede usar el mago.
+  - atacar_con_hechizo(): Método utilizado para atacar con un hechizo aleatorio del array.
+
+  arquero tiene las siguientes propiedades y metodos:
+  - array_de_flechas: Flechas que puede usar el arquero.
+  - disparar(): Método utilizado para disparar una flecha aleatoria del array.
+
+  Debes de crear al menos 5 personajes, al menos 2 deben de ser guerreros, 2 magos y 1 arquero.
+
+  Al iniciar el juego, cada personaje debe saludar indicando su nombre y clase.
+
+  Luego habrá una ronda de ataques. En cada ronda, cada personaje atacará a otro personaje de forma aleatoria.
+
+  Cada personaje solo puede atacar una vez por ronda.
+
+  Además, el orden de la ronda debe ser determinado de forma aleatoria pero tomando en cuenta la velocidad de cada personaje.
+
+  Para ello debes jugar con las probabilidades de cada personaje, por ejemplo:
+  - Si el personaje tiene una velocidad de 10, debes generar un numero aleatorio entre 1 y 10.
+  - Según el numero aleatorio generado, será determinado el orden de ataque de cada personaje en esa ronda
+
+  Ejemplo:
+  Personaje 1: 5
+  Personaje 2: 8
+  Personaje 3: 2
+  Personaje 4: 10
+  Personaje 5: 6
+
+  El personaje 4 atacará primero, luego el personaje 2, luego el personaje 5, luego el personaje 1 y por último el personaje 3.
+
+  Cuando un personaje ataque a otro, se utilizara la siguiente lógica:
+
+  El personaje atacado se intentara defender, este generara un numero aleatorio entre 1 y su defensa.
+  Si el numero aleatorio es mayor que el daño del atacante, el ataque falla y no se le resta vida al personaje atacado.
+  Si el numero aleatorio es menor o igual al daño del atacante, el ataque tiene éxito y se le resta vida al personaje atacado.
+
+  Al momento de atacar, se debe mostrar un mensaje indicando quién ataca a quién y si el ataque fue exitoso o fallido.
+
+  Además, hay un tercio de posibilidades de que un personaje ataque con sus puños y dos tercios de posibilidades de que ataque con su arma, hechizo o flecha (según su clase).
+
+  Cuando la vida de un personaje llegue a 0, este será eliminado del juego y no podrá atacar más.
+  El juego termina cuando solo quede un personaje con vida.
+
+  Es importante que cuando un personaje muera, se muestre un mensaje indicando que ha muerto y que no puede atacar más.
+  Además, al final del juego, se debe mostrar un mensaje indicando quién es el ganador.
+
+  El juego es ganado por el personaje que quede con vida al final.
+
+  Nota: es importante imprimir cada numero de ronda
+  ejemplo: "Ronda 1", "Ronda 2", etc.
+
+  Puntos opcionales:
+  - Implementa un sistema de habilidades especiales para cada clase, estas habilidades solo se pueden ser utilizadas una vez por juego.
+  - Implementa un inventario y objetos para cada personaje, los cuales pueden ser utilizados para mejorar sus habilidades o recuperar vida, sin embargo
+  Estos consumirán un turno de ataque y tienen un número limitado de usos.
+  - Agrega la clase "vampiro" cuyos ataques regenerar un % aleatorio de vida al personaje.
+  - Agrega la posibilidad de 1 entre 10 de que un personaje se tropiece y no pueda hacer nada en esa ronda.
+*/
+
+let legolas = {
+  nombre: "legolas",
+  defensa: 10,
+  ataque: 100,
+  vida: 1000,
+  flechas: [
+    {
+      nombre: "flecha de fuego",
+      ataque: 200,
+      cantidad: 5,
+    },
+    {
+      nombre: "flecha de hielo",
+      ataque: 200,
+      cantidad: 5,
+    },
+  ],
+};
+
+let jhon_snow = {
+  nombre: "jhon snow",
+  defensa: 15,
+  ataque: 120,
+  vida: 1200,
+  armas: [
+    {
+      nombre: "espada",
+      ataque: 150,
+    },
+    {
+      nombre: "maza",
+      ataque: 180,
+    },
+    {
+      nombre: "lobo",
+      ataque: 220,
+    },
+    {
+      nombre: "poder del guion",
+      ataque: 3000,
+    },
+  ],
+};
+
+function numero_aleatorio(numero) {
+  return Math.floor(Math.random() * numero);
+}
+
+function verificar_muerte(personajes) {
+  for (personaje of personajes) {
+    if (personaje.vida <= 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+do {
+  let personajes = [legolas, jhon_snow];
+  let turno = Math.floor(Math.random() * 2);
+  let atacante = personajes[turno];
+  do {
+    var defensor = personajes[Math.floor(Math.random() * 2)];
+  } while (defensor.nombre === atacante.nombre);
+
+  let accion = numero_aleatorio(2);
+
+  if (accion == 0) {
+    console.log(`${atacante.nombre} ataca a ${defensor.nombre} con los puños`);
+    daño =
+      numero_aleatorio(atacante.ataque) - numero_aleatorio(defensor.defensa);
+    if (daño < 0) {
+      daño = 0;
+    }
+    defensor.vida -= daño; //defensor.vida = defensor.vida - daño
+    console.log(
+      `${atacante.nombre} le ha quitado ${daño} puntos de vida a ${defensor.nombre}, le quedan ${defensor.vida}`
+    );
+    if (defensor.vida <= 0) {
+      console.log(`${defensor.nombre} ha muerto`);
+    }
+  } else if ((accion = 1)) {
+    if (atacante.flechas) {
+      let flecha = atacante.flechas[numero_aleatorio(atacante.flechas.length)];
+      console.log(
+        `${atacante.nombre} ataca a ${defensor.nombre} con ${flecha.nombre}`
+      );
+      daño =
+        numero_aleatorio(flecha.ataque) - numero_aleatorio(defensor.defensa);
+      if (daño < 0) {
+        daño = 0;
+      }
+      defensor.vida -= daño; //defensor.vida = defensor.vida - daño
+      console.log(
+        `${atacante.nombre} le ha quitado ${daño} puntos de vida a ${defensor.nombre}, le quedan ${defensor.vida}`
+      );
+      if (defensor.vida <= 0) {
+        console.log(`${defensor.nombre} ha muerto`);
+      }
+    } else if (atacante.armas) {
+      let arma = atacante.armas[numero_aleatorio(atacante.armas.length)];
+      console.log(
+        `${atacante.nombre} ataca a ${defensor.nombre} con ${arma.nombre}`
+      );
+      daño = numero_aleatorio(arma.ataque) - numero_aleatorio(defensor.defensa);
+      if (daño < 0) {
+        daño = 0;
+      }
+      defensor.vida -= daño; //defensor.vida = defensor.vida - daño
+      console.log(
+        `${atacante.nombre} le ha quitado ${daño} puntos de vida a ${defensor.nombre}, le quedan ${defensor.vida}`
+      );
+      defensor.vida -= daño;
+      if (defensor.vida <= 0) {
+        console.log(`${defensor.nombre} ha muerto`);
+      }
+    }
+  }
+} while (verificar_muerte([legolas, jhon_snow]));
+
+/*
+  Programación Funcional
+  La programación funcional es un paradigma de programación (una forma de pensar y organizar el código)
+  que se basa en el uso de funciones puras, inmutabilidad y la evitación de efectos secundarios.
+  En la programación funcional, las funciones son ciudadanos de primera clase, lo que significa que pueden
+  ser pasadas como argumentos, retornadas desde otras funciones y asignadas a variables.
+*/
+
+function juego_piedra_papel_tijera() {
+  //pedir jugadas a los jugadores
+  jugador1 = pedir_jugada(1);
+  jugador2 = pedir_jugada(2);
+  // Validar las jugadas de los jugadores
+  if (!validar_jugada(jugador1) || !validar_jugada(jugador2)) {
+    console.log("Jugada inválida. Debe ser piedra, papel o tijera.");
+    return;
+  }
+  // Evaluar el resultado del juego e imprimir el resultado
+  console.log(evaluar_resultado(jugador1, jugador2));
+}
+
+function pedir_jugada(jugador) {
+  let jugada = prompt(
+    `Jugador ${jugador}, ingresa tu jugada (piedra, papel o tijera):`
+  );
+  return jugada.toLowerCase();
+}
+
+function validar_jugada(jugada) {
+  const opciones = ["piedra", "papel", "tijera"];
+  return opciones.includes(jugada);
+}
+
+function evaluar_resultado(jugador1, jugador2) {
+  if (jugador1 === jugador2) {
+    return "Empate";
+  } else if (
+    (jugador1 === "piedra" && jugador2 === "tijera") ||
+    (jugador1 === "papel" && jugador2 === "piedra") ||
+    (jugador1 === "tijera" && jugador2 === "papel")
+  ) {
+    return "Jugador 1 gana";
+  } else {
+    return "Jugador 2 gana";
+  }
+}
