@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <title>Formulario</title>
+</head>
+<body class="flex justify-center items-center min-h-screen p-4">
+  <form id="formulario" class="flex flex-col gap-4 shadow-2xl p-8">
+    <h1 class="font-bold text-4xl text-center w-full">Formulario  de registro</h1>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <div class="flex flex-col gap-2">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" placeholder="nombre" class="border border-black/50 rounded-2xl pl-4">
+      </div>
+      <div class="flex flex-col gap-2">
+        <label for="apellido">Apellido</label>
+        <input type="text" id="apellido" placeholder="apellido" class="border border-black/50 rounded-2xl pl-4">
+      </div>
+    </div>
+    <div class="flex flex-col gap-2">
+      <label for="correo">Correo</label>
+      <input type="email" id="correo" placeholder="correo" class="border border-black/50 rounded-2xl pl-4">
+    </div>
+    <div class="flex flex-col gap-2">
+      <label for="pais">Pais</label>
+      <select name="pais" id="pais" class="border border-black/50 rounded-2xl pl-4">
+        <option value="" disabled selected>Elige un pais</option>
+        <option value="colombia">Colombia</option>
+        <option value="venezuela">Venezuela</option>
+      </select>
+    </div>
+    <div class="flex flex-col gap-2">
+      <label for="password">Contraseña</label>
+      <input type="password" id="password" placeholder="contraseña" class="border border-black/50 rounded-2xl pl-4">
+    </div>
+    <input type="submit" value="Enviar" class="bg-blue-600 text-white py-2 rounded-2xl hover:bg-blue-800 cursor-pointer rounded-2xl text-white">
+  </form>
+  <script src="formulario.js"></script>
+</body>
+</html>

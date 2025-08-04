@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo de Programación Orientada a Eventos</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1 id="title"> Event-Driven Programing Example</h1>
+
+    <button id="changeTextBtn">changeText</button>
+    <button id="changeColorBtn">changeColor</button>
+    <button id="addItemBtn">addItem</button>
+    <button id="toggleClassBtn">toggleClass</button>
+
+    <p id="message">Clic a buttom to trigger an event!</p>
+
+    <ul id="itemList">
+      <li>Example Item</li>
+      <li>Example Item</li>
+    </ul>
+    
+    <hr>
+
+    <h1>Manipulacion del DOM (Document Object Model) en Formularios</h1>
+
+    <p>interactua con los campos y botones del formulario para disparar eventos</p>
+
+    <form action="#" id="userForm" class="form">
+      <laabel for="name">Nombre</laabel>
+      <input type="text" id="nameInput" placeholder="ingresa tu Nombre">
+      <laabel for="email">Email</laabel>
+      <input type="email" id="emailInput" placeholder="ingresa tu Email">
+
+      <div>
+        <button type="button" id="clearFormBtn">Limpiar</button>
+        <button type="submit" id="submitFormBtn">Enviar</button>
+      </div>
+      <div>
+        <button type="button" id="fillFormBtn">Autocompletar</button>
+      </div>
+    </form>
+
+
+    <script src="script.js"></script>
+  </body>
+</html>
