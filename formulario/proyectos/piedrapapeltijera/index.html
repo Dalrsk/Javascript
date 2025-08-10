@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <title>Piedra Papel Tijera</title>
+</head>
+<body class="bg-orange-700 flex flex-col justify-center items-center min-h-screen p-4">
+  <h1 class="text-center text-white font-bold text-6xl p-4 mb-4">Piedra Papel Tijera</h1>
+  <div class="opciones">
+    <button onclick="jugar('piedra')" id="btnPieda" class="p-4 bg-zinc-600 hover:bg-zinc-800 text-white font-bold m-2 cursor-pointer border-2 rounded-[20px]" class="cursor-not-allowed">Piedra</button>
+    <button onclick="jugar('papel')" id="btnPapel" class="p-4 bg-zinc-600 hover:bg-zinc-800 text-white font-bold m-2 cursor-pointer border-2 rounded-[20px]" class="cursor-not-allowed">Papel</button>
+    <button onclick="jugar('tijera')" id="btnTijera" class="p-4 bg-zinc-600 hover:bg-zinc-800 text-white font-bold m-2 cursor-pointer border-2 rounded-[20px]" class="cursor-not-allowed">Tijera</button>
+  </div>
+  <div id="resultado" class="mt-4 font-semibold text-lg text-white"></div>
+  <div id="puntaje" class="mt-4 font-semibold text-lg text-white">Jugador: 0 vs Computadora: 0</div>
+
+  <script src="piedrapapeltijera.js"></script>
+</body>
+</html>
